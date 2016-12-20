@@ -1,0 +1,7 @@
+<div>
+  <div>name: {{profile?._name}}</div>
+  <div>
+    model name: {{name | async}}<br/>
+    <input type="text" placeholder="{{name.getValue()}}" (change)="name.next($event)"/>
+  </div>
+</div>

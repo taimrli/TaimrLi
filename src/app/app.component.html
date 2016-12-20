@@ -1,3 +1,10 @@
-<h1>
-  {{title}}
-</h1>
+<h1>Taimrli</h1>
+<nav>
+  <a routerLink="home">Home</a>
+  <a routerLink="dashboard" *ngIf="isAuthenticated | async">Dashboard</a>
+  <a routerLink="profile" *ngIf="isAuthenticated | async">Profile</a>
+  <button (click)="login()" *ngIf="!(isAuthenticated | async)">login</button>
+  <button (click)="logout()" *ngIf="isAuthenticated | async">logout</button>
+</nav>
+
+<router-outlet></router-outlet>
