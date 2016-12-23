@@ -21,4 +21,9 @@ export class UserService {
   getSettings(): Observable<Settings> {
     return Observable.create((obs: Observer<Settings>) => this.fbObjectResolver.load<Settings>(obs, '/_settings'));
   }
+
+  saveProfile(profile: Profile):void {
+    console.log('saving');
+    this.fbObjectResolver.save(profile, '/_profile');
+  }
 }

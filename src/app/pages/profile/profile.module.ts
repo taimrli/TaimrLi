@@ -4,6 +4,7 @@ import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import {ProfileComponent} from "./profile.component";
 import {FormsModule} from "@angular/forms";
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,7 @@ import {FormsModule} from "@angular/forms";
     CommonModule,
     FormsModule
   ],
-  declarations: [ProfileComponent],
+  declarations: [ProfileComponent, ProfileEditComponent],
   exports:[ProfileComponent]
 })
 export class ProfileModule {}

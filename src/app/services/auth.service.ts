@@ -7,13 +7,15 @@ export class AuthService {
   private isAuthenticated = new Subject<boolean>();
 
   private uid = new Subject<string>();
-  private uidCache: string;
+  private uidCached: string = null;
 
   constructor(private auth: FirebaseAuth) {
     auth.subscribe(state => {
       this.isAuthenticated.next(state !== null);
+      if(state !== null) {
+        this.uidCached = state.uid;
+      }
       this.uid.next(state.uid);
-      this.uidCache = state.uid;
     });
   }
 
@@ -29,12 +31,11 @@ export class AuthService {
     return this.isAuthenticated;
   }
 
-  getUid(): string {
-    return this.uidCache;
-  }
-
   getUidObs(): Observable<string> {
     return this.uid;
   }
 
+  getUidCached(): string {
+    return this.uidCached;
+  }
 }

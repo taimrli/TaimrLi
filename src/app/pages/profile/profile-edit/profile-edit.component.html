@@ -1,0 +1,9 @@
+<form>
+  <div>
+    <label for="profileChangeName">Name</label>
+    <input id="profileChangeName" type="text" [ngModel]="profile.name" (ngModelChange)="newName = $event" name="profileName" />
+  </div>
+  <div>
+    <button type="submit" (click)="save()">save</button>
+  </div>
+</form>
